@@ -1,0 +1,48 @@
+<idea-plugin>
+    <id>com.whh.idea.plugin</id>
+    <name>custom-tool</name>
+    <version>1.0</version>
+    <vendor email="xuzhowhh@google.com" url="http://blog.whhxz.com">WHHXZ</vendor>
+
+    <description>
+
+        自用idea插件
+    </description>
+
+    <change-notes>
+        NO
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group text="whhPlugin" id="WhhCustomPluginGroup" popup="true">
+            <add-to-group group-id="ProjectViewPopupMenu" relative-to-action="RevealIn" anchor="before"/>
+            <action id="UploadFileRemoteHost" class="com.whh.idea.plugin.action.UploadFileRemoteHostAction"
+                    text="上传文件" description="UploadFileRemoteHostAction">
+            </action>
+            <action id="JsonToObject" class="com.whh.idea.plugin.action.JsonToObjectAction" text="Json转Java类"
+                    description="Json转Java类"/>
+        </group>
+    </actions>
+
+    <module-components>
+    </module-components>
+    <application-components>
+        <component>
+            <implementation-class>com.whh.idea.plugin.component.CustomApplicationComponent</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>
